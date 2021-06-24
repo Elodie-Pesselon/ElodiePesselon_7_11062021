@@ -1,3 +1,10 @@
 */node_modules
 backend/dist/server.dev.js
 backend/dist/app.dev.js
+backend/models/dist/user.dev.js
+backend/models/dist/post.dev.js
+backend/models/dist/comment.dev.js
+backend/routes/dist/user.dev.js
+backend/middleware/dist/auth.dev.js
+backend/controllers/dist/user.dev.js
+backend/controllers/dist/post.dev.js
