@@ -8,3 +8,8 @@ backend/routes/dist/user.dev.js
 backend/middleware/dist/auth.dev.js
 backend/controllers/dist/user.dev.js
 backend/controllers/dist/post.dev.js
+backend/controllers/dist/comment.dev.js
+backend/controllers/dist/comment.dev.js
+backend/middleware/dist/db_assocation.dev.js
+backend/middleware/dist/db.dev.js
+backend/middleware/dist/dbConfig.dev.js

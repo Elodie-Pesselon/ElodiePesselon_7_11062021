@@ -1,9 +1,10 @@
 //Importations
-const bodyParser = require('body-parser');
+
 const express = require('express');
 const mysql = require('mysql');
 const {Sequelize} = require('sequelize');
-
+const db = require('./middleware/db_config');
+const dbassociation = require("./middleware/db_assocation");
 
 
 // Importation des routes : 
@@ -14,21 +15,16 @@ const app = express();
 
 
 
-//Connection à la DB : 
-const sequelize = new Sequelize('groupomania', 'admin', '-F6)]u$96*R,uXj', {
-    host: 'localhost',
-    dialect: 'mysql',
-    port: 8889
-});
 
-
-try { 
-    sequelize.authenticate();
+    db.authenticate()
+    .then(()=>{
     console.log('Connection à la BDD réussie !');
-}   catch (error) {
+    })
+    .catch ((error)=> {
     console.error('Impossible de se connecter à la BDD', error);
-}
+    });
 
+    db.sync({force:true});
 // Ajout de headers à notre objet response pour éviter les erreurs CORS
 app.use((req, res, next) => {
     res.setHeader('Access-Control-Allow-Origin', '*');

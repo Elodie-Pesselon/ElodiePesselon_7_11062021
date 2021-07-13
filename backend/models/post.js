@@ -1,11 +1,7 @@
-module.exports = function(sequelize, DataTypes) {
-  return sequelize.define('Post', {
-    id: {
-      type: DataTypes.INTEGER.UNSIGNED, 
-      allowNull: false,
-      primaryKey: true,
-      autoIncrement: true
-    },
+const { DataTypes } = require('sequelize');
+const db = require("../middleware/db_config");
+
+module.exports = db.define('Post', {
     title: {
       type: DataTypes.STRING,
       allowNull: false
@@ -17,27 +13,6 @@ module.exports = function(sequelize, DataTypes) {
     image: {
       type: DataTypes.STRING,
       allowNull: true
-    },
-    created_date: {
-      type: DataTypes.DATE,
-      allowNull: false
-    },
-    updated_date: {
-      type: DataTypes.DATE,
-      allowNull: false
-    },
-    user_id:{
-      type: DataTypes.INTEGER.UNSIGNED,
-      allowNull: false,
-      references: {
-        model: 'Users',
-        key: 'id' 
-      }
-    },
-    classMethods:{
-      associate: function(models){
-        models.Post.belongsTo(models.Comment);
-      }
     }
+    
   });
-}

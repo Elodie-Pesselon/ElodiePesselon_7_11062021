@@ -2,14 +2,14 @@ const {Sequelize} = require('sequelize');
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
 const User = require('../models/user');
-const user = require('../models/user');
+
 
 
 
 module.exports = {
 
     //Création d'un utilisateur
-    signUp: function (req, res) {
+    signup: function (req, res) {
 
         //Paramètres
         const email = req.body.email;
@@ -20,11 +20,11 @@ module.exports = {
 
         //Vérification des champs requis pour la création d'un compte utilisateur
 
-       /* if (email == null || pseudo == null || password == null || fonction == null) {
+        if (email == null || pseudo == null || password == null || fonction == null) {
             return res.status(400).json({
                 'error': 'missing parameters'
             });
-        }*/
+        }
 
         //Vérification que l'utilisateur n'existe pas puis création du compte utilisateur
         User.findOne({
